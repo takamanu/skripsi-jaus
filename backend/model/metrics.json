@@ -1,0 +1,60 @@
+{
+  "best_method": "stacking_smote",
+  "features": [
+    "Insulin",
+    "SkinThickness",
+    "Glucose",
+    "BloodPressure",
+    "BMI"
+  ],
+  "results": {
+    "stacking": {
+      "accuracy": 0.727891,
+      "precision": 0.676471,
+      "recall": 0.442308,
+      "f1_score": 0.534884,
+      "confusion_matrix": [
+        [
+          84,
+          11
+        ],
+        [
+          29,
+          23
+        ]
+      ]
+    },
+    "stacking_smote": {
+      "accuracy": 0.748299,
+      "precision": 0.647059,
+      "recall": 0.634615,
+      "f1_score": 0.640777,
+      "confusion_matrix": [
+        [
+          77,
+          18
+        ],
+        [
+          19,
+          33
+        ]
+      ]
+    },
+    "stacking_smotetomek": {
+      "accuracy": 0.727891,
+      "precision": 0.607143,
+      "recall": 0.653846,
+      "f1_score": 0.62963,
+      "confusion_matrix": [
+        [
+          73,
+          22
+        ],
+        [
+          18,
+          34
+        ]
+      ]
+    }
+  }
+}
