@@ -1,1 +1,1 @@
-["Insulin", "SkinThickness", "Glucose", "BloodPressure", "BMI"]
+["Pregnancies", "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"]

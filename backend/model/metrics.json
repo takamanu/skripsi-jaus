@@ -1,60 +1,83 @@
 {
-  "best_method": "stacking_smote",
+  "best_method": "stacking_smotetomek",
   "features": [
-    "Insulin",
-    "SkinThickness",
+    "Pregnancies",
     "Glucose",
     "BloodPressure",
-    "BMI"
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+    "DiabetesPedigreeFunction",
+    "Age"
   ],
   "results": {
     "stacking": {
-      "accuracy": 0.727891,
-      "precision": 0.676471,
-      "recall": 0.442308,
-      "f1_score": 0.534884,
+      "accuracy": 0.765101,
+      "precision": 0.72973,
+      "recall": 0.519231,
+      "f1_score": 0.606742,
       "confusion_matrix": [
         [
-          84,
-          11
+          87,
+          10
         ],
         [
-          29,
-          23
+          25,
+          27
         ]
       ]
     },
     "stacking_smote": {
-      "accuracy": 0.748299,
-      "precision": 0.647059,
-      "recall": 0.634615,
-      "f1_score": 0.640777,
+      "accuracy": 0.831169,
+      "precision": 0.813953,
+      "recall": 0.875,
+      "f1_score": 0.843373,
       "confusion_matrix": [
         [
-          77,
-          18
+          58,
+          16
         ],
         [
-          19,
-          33
+          10,
+          70
         ]
       ]
     },
     "stacking_smotetomek": {
-      "accuracy": 0.727891,
-      "precision": 0.607143,
-      "recall": 0.653846,
-      "f1_score": 0.62963,
+      "accuracy": 0.874172,
+      "precision": 0.8625,
+      "recall": 0.896104,
+      "f1_score": 0.878981,
       "confusion_matrix": [
         [
-          73,
-          22
+          63,
+          11
         ],
         [
-          18,
-          34
+          8,
+          69
         ]
       ]
     }
+  },
+  "evaluation_note": "Angka pada 'results' mereplikasi notebook: setiap varian diuji pada test set yang berbeda, dan test set varian SMOTE/SMOTE-Tomek mengandung data sintetis sehingga angkanya tidak sebanding dan melebih-lebihkan performa nyata.",
+  "honest_holdout": {
+    "model": "stacking_smotetomek",
+    "n_samples": 149,
+    "description": "Performa model terpilih pada 149 pasien ASLI dari SPLIT-1 yang tidak pernah dipakai melatihnya.",
+    "accuracy": 0.778523,
+    "precision": 0.686275,
+    "recall": 0.673077,
+    "f1_score": 0.679612,
+    "confusion_matrix": [
+      [
+        81,
+        16
+      ],
+      [
+        17,
+        35
+      ]
+    ]
   }
 }

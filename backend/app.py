@@ -29,6 +29,10 @@ def model_info():
             "best_method": METRICS["best_method"],
             "features": FEATURES,
             "results": METRICS["results"],
+            # Performa model terpilih pada data uji berisi pasien asli — angka di
+            # "results" mereplikasi notebook dan melebih-lebihkan performa nyata.
+            "honest_holdout": METRICS.get("honest_holdout"),
+            "evaluation_note": METRICS.get("evaluation_note"),
         }
     )
 
