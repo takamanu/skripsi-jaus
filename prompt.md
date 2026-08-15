@@ -11,6 +11,7 @@ Kira kira berarti isi formnya ini aja inputnya:
 
 UI UXnya kamu bikin sesederhana mungkin aja pakai tailwind
 
+--------------------
 
 Prompt Lanjutan:
 Coba kamu baca dan pahami @Mni_Riset_Jaus.ipynb , jadi kemungkinan model yang kita pakai itu dari situ. 
@@ -25,3 +26,5 @@ Aku mau ada fitur fitur untuk mendeskripsikan:
 2. Grafik mendeskripsikan "Smote X Stacking"
 
 3. Grafik SMOTETOMEK x STACKING ENSEMBLE RANDOM FOREST dan XG BOOST
+
+--------------------
