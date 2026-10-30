@@ -355,9 +355,42 @@ p {
   border-color: #ffffff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .hero {
-    padding: 100px 24px 60px;
+    padding: 100px 20px 60px;
+  }
+
+  .hero__content {
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    /* Keep completely transparent so 3D model remains 100% visible */
+    background: transparent;
+    padding: 0;
+  }
+
+  .hero__title {
+    font-size: 1.85rem;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 1);
+  }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 1), 0 0 20px rgba(0, 0, 0, 0.9);
+    line-height: 1.65;
+  }
+
+  .hero__actions .btn--secondary {
+    background: rgba(3, 10, 22, 0.65);
+    border-color: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero__footnote {
+    color: #e2e8f0 !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.95);
   }
 }
 

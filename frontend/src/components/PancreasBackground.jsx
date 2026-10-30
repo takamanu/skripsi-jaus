@@ -131,8 +131,8 @@ export default function PancreasBackground() {
         : width > 1200
           ? 0.36 * vWidth
           : 0.31 * vWidth
-      const targetBaseY = isMobile ? -0.18 * vHeight : 0.02 * vHeight
-      const targetScale = isMobile ? 0.70 : width > 1200 ? 0.98 : 0.90
+      const targetBaseY = isMobile ? -0.28 * vHeight : 0.02 * vHeight
+      const targetScale = isMobile ? 0.78 : width > 1200 ? 0.98 : 0.90
 
       // Drifts slightly down and rotates on scroll
       const scrollRotY = BASE_ROT_Y + currentScroll * 0.0035

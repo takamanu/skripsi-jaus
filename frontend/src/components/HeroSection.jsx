@@ -37,7 +37,7 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <p style={{ fontSize: '0.75rem', color: 'var(--ink-faint)', lineHeight: 1.6, marginTop: 4 }}>
+          <p className="hero__footnote" style={{ fontSize: '0.75rem', color: '#94a3b8', lineHeight: 1.6, marginTop: 4 }}>
             Dataset: Pima Indians Diabetes (768 data pasien, NIDDK) &middot; Model: Stacking Ensemble RF &times; XGBoost
           </p>
         </div>
