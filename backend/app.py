@@ -1,19 +1,33 @@
 import json
+import os
+from pathlib import Path
 
 import joblib
 import pandas as pd
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
+BASE_DIR = Path(__file__).resolve().parent
+
+model_file = BASE_DIR / "model" / "best_model.joblib"
+features_file = BASE_DIR / "model" / "feature_order.json"
+metrics_file = BASE_DIR / "model" / "metrics.json"
+
+# Auto-train jika model atau metrik belum ada (misal fresh git clone di Render/lokal)
+if not (model_file.exists() and features_file.exists() and metrics_file.exists()):
+    print("[INFO] Model atau file metrik belum ditemukan. Memulai proses training otomatis...")
+    from train_model import main as run_train
+    run_train()
+
 app = Flask(__name__)
 CORS(app)
 
-model = joblib.load("model/best_model.joblib")
+model = joblib.load(model_file)
 
-with open("model/feature_order.json") as f:
+with open(features_file) as f:
     FEATURES = json.load(f)
 
-with open("model/metrics.json") as f:
+with open(metrics_file) as f:
     METRICS = json.load(f)
 
 
@@ -69,4 +83,7 @@ def predict():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5002)
+    port = int(os.environ.get("PORT", 5002))
+    host = os.environ.get("HOST", "0.0.0.0")
+    debug = os.environ.get("FLASK_DEBUG", "false").lower() == "true"
+    app.run(host=host, port=port, debug=debug)

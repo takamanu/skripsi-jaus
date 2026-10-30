@@ -51,6 +51,7 @@ data latih dan ketiga model diuji pada satu test set berisi data asli.
 """
 
 import json
+from pathlib import Path
 import time
 
 import joblib
@@ -85,6 +86,7 @@ FEATURES = [
 ]
 TARGET = "Outcome"
 RANDOM_STATE = 42
+BASE_DIR = Path(__file__).resolve().parent
 
 
 def load_and_clean_data(csv_path: str) -> pd.DataFrame:
@@ -140,7 +142,7 @@ def evaluate(model, X_test, y_test) -> dict:
 
 
 def main():
-    df = load_and_clean_data("data/diabetes.csv")
+    df = load_and_clean_data(str(BASE_DIR / "data" / "diabetes.csv"))
 
     X = df[FEATURES]
     y = df[TARGET]
@@ -209,8 +211,9 @@ def main():
     print(f"[INFO] Evaluasi jujur '{best_method}' pada {len(real_y_test)} pasien asli: "
           f"accuracy={honest['accuracy']} (vs {results[best_method]['accuracy']} di test set tercemar)")
 
-    joblib.dump(best_model, "model/best_model.joblib")
-    with open("model/metrics.json", "w") as f:
+    (BASE_DIR / "model").mkdir(parents=True, exist_ok=True)
+    joblib.dump(best_model, BASE_DIR / "model" / "best_model.joblib")
+    with open(BASE_DIR / "model" / "metrics.json", "w") as f:
         json.dump(
             {
                 "best_method": best_method,
@@ -235,7 +238,7 @@ def main():
             f,
             indent=2,
         )
-    with open("model/feature_order.json", "w") as f:
+    with open(BASE_DIR / "model" / "feature_order.json", "w") as f:
         json.dump(FEATURES, f)
 
     print("\n[INFO] Model & metrik tersimpan di backend/model/")

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: diabetes-prediction-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python train_model.py
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+    plan: free

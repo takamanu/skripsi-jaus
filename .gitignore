@@ -1,6 +1,22 @@
+# Environments
+.env
+.env.local
+.env.*.local
+
+# Python
 backend/venv/
 backend/__pycache__/
-backend/model/*.joblib
+*.pyc
+*.pyo
+
+# Models
+backend/model/best_model.joblib
+*.joblib
+
+# Frontend
 frontend/node_modules/
 frontend/dist/
+
+# OS
 .DS_Store
+Thumbs.db
